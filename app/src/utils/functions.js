@@ -1,13 +1,40 @@
 import { defaultMatrixItemData } from "./data";
 
-function copy(target, source) {
+export function copy(target, source) {
     Object.assign(target, source);
     return target;
 }
 
-function itemInArray(searchingItem, array) {
+const objTypes = [Array, Object];
+
+export function deepEqual(obj1, obj2) {
+    if (obj1 === obj2) return true;
+
+    if (
+        obj1 == null ||
+        obj2 == null ||
+        typeof obj1 !== "object" ||
+        typeof obj2 !== "object"
+    ) {
+        return false;
+    }
+
+    const keys1 = Object.keys(obj1);
+    const keys2 = Object.keys(obj2);
+
+    if (keys1.length !== keys2.length) return false;
+
+    for (let key of keys1) {
+        if (!keys2.includes(key) || !deepEqual(obj1[key], obj2[key])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+export function itemInArray(searchingItem, array) {
     for (let item of array) {
-        if (item === searchingItem) return true;
+        if (deepEqual(item, searchingItem)) return true;
     }
     return false;
 }
@@ -36,14 +63,16 @@ function makeDefaultMatrixItemData(
 }
 
 function itemIsWall(itemData, sizeX, sizeY) {
-    if (itemData.x === sizeX || itemData.y === sizeY) return true;
+    let [x, y] = [itemData.x, itemData.y];
+    if (itemInArray(x, [0, sizeX - 1]) || itemInArray(y, [0, sizeY - 1]))
+        return true;
     return false;
 }
 
 function makeMatrixItemData(x, y, sizeX, sizeY) {
     let itemData = makeDefaultMatrixItemData(x, y);
     itemData.isWall = itemIsWall(itemData, sizeX, sizeY);
-    
+    return itemData;
 }
 
 export function makeDefaultMatrixData(sizeX = 10, sizeY = 10) {
@@ -58,4 +87,8 @@ export function makeDefaultMatrixData(sizeX = 10, sizeY = 10) {
         matrix.push(matrixRow);
     }
     return matrix;
+}
+
+export function getFieldCoords(fieldData) {
+    return [fieldData.x, fieldData.y];
 }
