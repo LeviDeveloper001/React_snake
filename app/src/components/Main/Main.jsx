@@ -1,10 +1,15 @@
 import styles from './Main.module.css';
 
-function Main({...props}) {
+import TableGame from '../TableGame/TableGame';
+
+function Main({curGame, ...props}) {
   return (
-    <div>
-      <h3>Succesful created Main component!</h3>
-    </div>
+    <main className={styles.main}>
+      <div className={styles.gameDataWrapper}>
+        <h1 className={styles.gameName}>Snake</h1>
+        <TableGame curGame={curGame}/>
+      </div>
+    </main>
   );
 }
 

@@ -1,11 +1,11 @@
-import styles from './Gamesection.module.css';
+import styles from './GameSection.module.css';
 
-function Gamesection({...props}) {
+function GameSection({...props}) {
   return (
     <div>
-      <h3>Succesful created Gamesection component!</h3>
+      <h3>Succesful created GameSection component!</h3>
     </div>
   );
 }
 
-export default Gamesection;
+export default GameSection;

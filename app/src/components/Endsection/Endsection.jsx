@@ -1,11 +1,11 @@
-import styles from './Endsection.module.css';
+import styles from './EndSection.module.css';
 
-function Endsection({...props}) {
+function EndSection({...props}) {
   return (
     <div>
-      <h3>Succesful created Endsection component!</h3>
+      <h3>Succesful created EndSection component!</h3>
     </div>
   );
 }
 
-export default Endsection;
+export default EndSection;

@@ -1,1 +1,25 @@
-/* css module for Main component succesfully created */
+.main {
+    width: 100%;
+    min-height: 1000px;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.gameDataWrapper {
+    width: 800px;
+    height: 1000px;
+    background-color: black;
+    margin: 10px;
+    border-radius: 50px;
+    padding: 50px;
+}
+
+
+.gameName {
+    color: white;
+}

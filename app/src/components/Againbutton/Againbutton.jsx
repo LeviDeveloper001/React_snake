@@ -1,11 +1,11 @@
-import styles from './Againbutton.module.css';
+import styles from './AgainButton.module.css';
 
-function Againbutton({...props}) {
+function AgainButton({...props}) {
   return (
     <div>
-      <h3>Succesful created Againbutton component!</h3>
+      <h3>Succesful created AgainButton component!</h3>
     </div>
   );
 }
 
-export default Againbutton;
+export default AgainButton;

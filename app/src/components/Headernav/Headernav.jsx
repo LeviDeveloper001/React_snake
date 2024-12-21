@@ -1,11 +1,11 @@
-import styles from './Headernav.module.css';
+import styles from './HeaderNav.module.css';
 
-function Headernav({...props}) {
+function HeaderNav({...props}) {
   return (
     <div>
-      <h3>Succesful created Headernav component!</h3>
+      <h3>Succesful created HeaderNav component!</h3>
     </div>
   );
 }
 
-export default Headernav;
+export default HeaderNav;
